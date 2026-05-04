@@ -102,7 +102,7 @@ const useCases:any[] = [
   }
 ];
 
-const testimonials:any[] = [
+const members:any[] = [
   {
     quote: "AstroFlow's automated warehousing solution transformed our e-commerce operations. We reduced order processing time by 40% and achieved 99.5% accuracy. Their same-day shipping capabilities helped us compete with industry giants.",
     name: "Sarah Mitchell",
@@ -193,7 +193,7 @@ const testimonials:any[] = [
     />
   </Section>
 
-  <!-- Testimonials Section -->
+  <!-- members Section -->
   <Section background="gray">
     <div class="text-center mb-16">
       <div class="inline-block px-4 py-2 mb-4 bg-blue-100 text-blue-800 text-sm font-semibold rounded-full">
@@ -208,8 +208,8 @@ const testimonials:any[] = [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {testimonials.map((testimonial) => (
-        <MemberCard testimonial={testimonial} />
+      {members.map((member) => (
+        <MemberCard member={member} />
       ))}
     </div>
   </Section>
