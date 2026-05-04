@@ -1,0 +1,59 @@
+---
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAnglesUp } from '@fortawesome/free-solid-svg-icons'
+
+// Puoi aggiungere il codice qui per configurare eventuali prop o logiche se necessario.
+---
+
+<button id="scrollToTopBtn" class="scroll-to-top-btn fad fa-arrow-to-top">
+  <FontAwesomeIcon icon={faAnglesUp} />
+</button>
+
+<style>
+  /* Stili per il bottone */
+  .scroll-to-top-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--color-blue-600);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Inizialmente nascosto */
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+  }
+
+  .scroll-to-top-btn:hover {
+    background-color: var(--color-blue-700);
+  }
+
+  .scroll-to-top-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+</style>
+
+<script>
+  // Otteniamo il bottone "Scroll to Top"
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+  if(!!scrollToTopBtn) {
+    // Mostriamo il bottone quando l'utente scorre verso il basso
+    window.onscroll = () => {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollToTopBtn.style.display = 'block'; // Mostra il bottone
+      } else {
+        scrollToTopBtn.style.display = 'none'; // Nasconde il bottone
+      }
+    };
+
+    // Funzione per fare scroll fino in cima quando il bottone viene cliccato
+    scrollToTopBtn.onclick = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Scorrimento fluido verso l'alto
+    };
+  }
+</script>

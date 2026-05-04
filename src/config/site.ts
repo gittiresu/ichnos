@@ -8,11 +8,11 @@ export const SITE = {
 
 export const NAVIGATION = [
   { name: 'Home', href: '/' },
-  { name: 'About Us', href: '#about-us' },
-  { name: 'Partners', href: '#partners' },
-  { name: 'Vacancy', href: '#vacancy' },
-  { name: 'M&A', href: '#mergers-and-acquisitions' },
-  { name: 'News', href: '#news' },
+  { name: 'About Us', href: '/#about-us' },
+  { name: 'Partners', href: '/#partners' },
+  { name: 'Vacancy', href: '/#vacancy' },
+  { name: 'M&A', href: '/#mergers-and-acquisitions' },
+  { name: 'News', href: '/#news' },
 ] as const;
 
 export const SOCIAL_LINKS = {

@@ -1,19 +1,19 @@
 ---
-import TestimonialCard from '../ui/TestimonialCard.astro';
+import MemberCard from '../ui/MemberCard.astro';
 
-import testimonial1Img from '@assets/photo-1494790108377-be9c29b29330.jpg';
+import member1Img from '@assets/photo-1494790108377-be9c29b29330.jpg';
 
-const testimonials= [
+const members= [
   {
     quote: "He leads strategic projects that connect talent, organizations, and growth opportunities. His approach combines entrepreneurial vision with HR expertise to support companies through development and transformation.",
     name: "Luca Ittiresu",
     role: "Founder & CEO",
-    image: testimonial1Img,
+    image: member1Img,
     ringColor: "ring-teal-200"
   }
 ];
 
-interface Industry {
+interface Service {
   title: string;
   description: string;
   iconGradient: string;
@@ -21,7 +21,7 @@ interface Industry {
   features: string[];
 }
 
-const industries: Industry[] = [
+const services: Service[] = [
   {
     title: "Recruitment",
     description: "Professional recruitment connecting top talent with leading companies through precise, efficient hiring solutions.",
@@ -64,19 +64,19 @@ const checkmarkPath = "M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {industries.map((industry) => (
+      {services.map((service) => (
         <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-slate-100">
-          <div class={`w-16 h-16 rounded-xl bg-linear-to-br ${industry.iconGradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+          <div class={`w-16 h-16 rounded-xl bg-linear-to-br ${service.iconGradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={industry.iconPath} />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.iconPath} />
             </svg>
           </div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-3">{industry.title}</h3>
+          <h3 class="text-2xl font-bold text-slate-900 mb-3">{service.title}</h3>
           <p class="text-slate-600 leading-relaxed mb-4">
-            {industry.description}
+            {service.description}
           </p>
           <ul class="space-y-2 text-sm text-slate-600">
-            {industry.features.map((feature) => (
+            {service.features.map((feature) => (
               <li class="flex items-center">
                 <svg class="w-4 h-4 text-teal-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d={checkmarkPath} clip-rule="evenodd" />
@@ -92,8 +92,8 @@ const checkmarkPath = "M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a
     <!-- Bottom CTA -->
     <div class="text-center mt-16">
       <div class="grid grid-cols-1 gap-8">
-        {testimonials.map((testimonial) => (
-          <TestimonialCard testimonial={testimonial} variant="home" />
+        {members.map((member) => (
+          <MemberCard member={member} variant="home" />
         ))}
       </div>
     </div>

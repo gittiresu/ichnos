@@ -1,8 +1,8 @@
 import { motion } from 'motion/react';
 import { Warehouse, Truck, Package, BarChart3, Shield, Headphones } from 'lucide-react';
 
-import warehouseImg from '@assets/photo-1553413077-190dd305871c.jpg';
-import truckImg from '@assets/photo-1601584115197-04ecc0da31d7.jpg';
+import frontendDevImg from '@assets/frontend-dev.webp';
+import backendDevImg from '@assets/backend-dev.jpg';
 import packageImg from '@assets/photo-1581091226825-a6a2a5aee158.jpg';
 import barChart3Img from '@assets/photo-1551288049-bebda4e38f71.jpg';
 import shieldImg from '@assets/photo-1563013544-824ae1b704d3.jpg';
@@ -10,39 +10,33 @@ import headphonesImg from '@assets/photo-1486312338219-ce68d2c6f44d.jpg';
 
 const features = [
   {
-    icon: Warehouse,
-    title: 'Advanced Warehousing',
-    description: 'Climate-controlled facilities with automated inventory systems and 24/7 security.',
-    image: warehouseImg,
+    title: 'FrontEnd Developer',
+    description: 'Build fast, responsive interfaces and deliver seamless user experiences across modern web applications.',
+    image: frontendDevImg,
   },
   {
-    icon: Truck,
-    title: 'Fast Transportation',
-    description: 'Multi-modal logistics network ensuring rapid delivery across all destinations.',
-    image: truckImg,
+    title: 'BackEnd Developer',
+    description: 'Design scalable APIs and build robust server-side systems that power reliable, high-performance applications.',
+    image: backendDevImg,
   },
   {
-    icon: Package,
-    title: 'Quality Manufacturing',
-    description: 'ISO-certified production with precision engineering and quality control.',
+    title: 'SysAdmin',
+    description: 'Maintain secure, stable, and efficient IT infrastructure to ensure seamless system operations.',
     image: packageImg,
   },
   {
-    icon: BarChart3,
-    title: 'Real-Time Analytics',
-    description: 'Complete supply chain visibility with advanced tracking and reporting.',
+    title: 'SEO Specialist',
+    description: 'Drive organic growth and boost search visibility through data-driven SEO strategies.',
     image: barChart3Img,
   },
   {
-    icon: Shield,
-    title: 'Secure Operations',
-    description: 'Industry-leading security protocols protecting your valuable assets.',
+    title: 'Cyber Security Specialist',
+    description: 'Protect systems and data by identifying threats and implementing robust security solutions.',
     image: shieldImg,
   },
   {
-    icon: Headphones,
-    title: '24/7 Support',
-    description: 'Dedicated teams available around the clock to ensure seamless operations.',
+    title: 'Customer Support',
+    description: 'Deliver exceptional support and build lasting customer relationships through responsive, solution-focused service.',
     image: headphonesImg,
   },
 ];
@@ -71,17 +65,6 @@ export default function FeatureShowcase() {
                 transition={{ duration: 0.4 }}
               />
               <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60" />
-              
-              {/* Icon overlay */}
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
-                className="absolute top-4 right-4 w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-lg"
-              >
-                <feature.icon className="w-6 h-6 text-blue-600" />
-              </motion.div>
             </div>
 
             {/* Content */}
