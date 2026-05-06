@@ -4,6 +4,7 @@ export const SITE = {
   description: 'Recruitment, human resources, mergers and acquisitions.',
   url: 'https://yourdomain.com',
   author: 'Ichnos Consultancy Ltd',
+  CBID: 'bb608901-c6b3-4a4d-8e0d-06f3de527241'
 } as const;
 
 export const NAVIGATION = [
