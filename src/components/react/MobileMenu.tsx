@@ -32,7 +32,7 @@ export default function MobileMenu() {
             <div className="pt-4">
               <Dialog.Close asChild>
                 <a
-                  href="/rfq"
+                  href="/contact-us"
                   className="block text-center px-6 py-3 text-sm font-semibold text-white bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-lg shadow-md transition-all"
                 >
                   Contact Us

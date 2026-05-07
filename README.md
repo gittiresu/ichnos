@@ -84,7 +84,7 @@ export const SOCIAL_LINKS = {
 
 ### Form Integration
 
-The RFQ form (`src/components/react/RFQForm.tsx`) currently logs form data to the console. To integrate with a backend:
+The RFQ form (`src/components/react/contact-usForm.tsx`) currently logs form data to the console. To integrate with a backend:
 
 1. **Option 1: Form Service** (Recommended for static sites)
    - Use [Formspree](https://formspree.io/), [Netlify Forms](https://www.netlify.com/products/forms/), or similar
