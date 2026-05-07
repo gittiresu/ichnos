@@ -50,3 +50,16 @@ html {
     height: 52rem;
   }
 }
+
+/*** Cookiebot widget overrides ***/
+#CookiebotWidget {
+  width: auto !important;
+  height: auto !important;
+  min-height: auto !important;
+  min-width: auto !important;
+}
+
+#CookiebotWidget svg {
+  width: 28px !important;
+  height: 28px !important;
+}

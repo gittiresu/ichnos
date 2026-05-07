@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/ui/Section.astro';
+import { Image } from 'astro:assets';
+import termsOfServiceBgImg from '@assets/banner-terms-of-service.webp';
+import "../styles/policies.css";
+---
+
+<BaseLayout title="Terms of Service">
+  <!-- Hero Section -->
+  <section class="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0">
+      <Image 
+        src={termsOfServiceBgImg}
+        alt="Clear terms that govern your use of our services."
+        class="w-full h-full object-cover"
+        width={2070}
+        height={1380}
+      />
+      <div class="absolute inset-0 bg-linear-to-r from-slate-900/95 via-slate-900/80 to-slate-900/50"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          Terms of <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-teal-400 to-blue-400">
+            Service
+          </span>
+      </h1>
+        
+        <p class="text-xl md:text-2xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+        Clear terms that govern your use of our services.
+      </p>
+      </div>
+    </div>
+  </section>
+
+  <Section id="cookie-policy-container">
+
+    <div class="uc-privacy-container privacy-wrapper">
+      <div class="privacy-content">
+        <section class="privacy-section">
+          <h2 class="privacy-section-title">&nbsp;</h2>
+          <p class="privacy-text">
+            These Terms of Service ("Terms") govern your use of our website and services. By accessing or using our website, you agree to comply with these Terms.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2 class="privacy-section-title">Use of the Website</h2>
+          <p class="privacy-text">
+            You agree to use this website only for lawful purposes and in a way that 
+            does not infringe the rights of others or restrict their use and enjoyment of the website.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2 class="privacy-section-title">Intellectual Property</h2>
+          <p class="privacy-text">
+            All content on this website, including text, graphics, logos, and images, 
+            is the property of the website owner or its licensors and is protected by applicable intellectual property laws.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2 class="privacy-section-title">User Accounts</h2>
+          <p class="privacy-text">
+            If you create an account, you are responsible for maintaining the confidentiality of your account information 
+            and for all activities that occur under your account.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2 class="privacy-section-title">Limitation of Liability</h2>
+          <p class="privacy-text">
+            We are not liable for any damages arising from your use of this website or inability to use it, to the fullest extent permitted by law.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2 class="privacy-section-title">Third-Party Links</h2>
+          <p class="privacy-text">
+            Our website may contain links to third-party websites. We are not responsible for the content or practices of these external sites.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2 class="privacy-section-title">Termination</h2>
+          <p class="privacy-text">
+            We reserve the right to suspend or terminate your access to the website at any time, 
+            without notice, for conduct that we believe violates these Terms.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2 class="privacy-section-title">Changes to These Terms</h2>
+          <p class="privacy-text">
+            We may update these Terms from time to time. Continued use of the website after changes means you accept the updated Terms.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2 class="privacy-section-title">Governing Law</h2>
+          <p class="privacy-text">
+            These Terms are governed by and construed in accordance with the laws of your jurisdiction.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2 class="privacy-section-title">Contact Us</h2>
+          <p class="privacy-text">
+            If you have any questions about this Cookie Policy, please contact us.
+          </p>
+        </section>
+      </div>
+    </div>
+  </Section>
+
+</BaseLayout>
+
