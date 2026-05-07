@@ -3,19 +3,29 @@ import * as Checkbox from '@radix-ui/react-checkbox';
 import { Check, User, Building2, Briefcase, Warehouse, Factory, Truck, Network, Wrench, Cpu, Calendar, Package } from 'lucide-react';
 
 export default function RFQForm() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     const form = e.currentTarget;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-    
-    // In a real application, you would send this to your backend
-    console.log('Form submitted:', data);
-    
-    // Show success message
-    alert('Thank you for your request! We will contact you within 24 hours.');
-    form.reset();
+
+    const mailSend =  await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if(!!mailSend.ok) {
+      // Show success message
+      alert('Thank you for your request! We will contact you within 24 hours.');
+      form.reset();
+    } else {      
+      // Show success message
+      alert('Your request fails! Please try again later.');
+    }
   };
 
   return (
@@ -81,7 +91,7 @@ export default function RFQForm() {
               htmlFor="phone"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Phone Number <span className="text-red-500">*</span>
+              Phone Number (with national prefix)<span className="text-red-500">*</span>
             </Label.Root>
             <input
               type="tel"
@@ -101,7 +111,7 @@ export default function RFQForm() {
             <Building2 className="w-5 h-5 text-white" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900">
-            Company Information
+            Your Company Information
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -125,7 +135,7 @@ export default function RFQForm() {
               htmlFor="industry"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Industry <span className="text-red-500">*</span>
+              Field <span className="text-red-500">*</span>
             </Label.Root>
             <select
               id="industry"
@@ -133,7 +143,7 @@ export default function RFQForm() {
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
             >
-              <option value="">Select an industry</option>
+              <option value="">Select one</option>
               <option value="ecommerce">E-Commerce & Retail</option>
               <option value="healthcare">Healthcare & Pharmaceuticals</option>
               <option value="automotive">Automotive & Manufacturing</option>
@@ -153,13 +163,13 @@ export default function RFQForm() {
             <Briefcase className="w-5 h-5 text-white" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900">
-            Service Requirements
+            Available applications
           </h2>
         </div>
         <div className="space-y-6">
           <div>
             <Label.Root className="block text-sm font-medium text-gray-700 mb-3">
-              Services Needed <span className="text-red-500">*</span>
+              At the moment we are looking for <span className="text-red-500">*</span>
             </Label.Root>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
@@ -208,7 +218,7 @@ export default function RFQForm() {
                 className="flex items-center text-sm font-medium text-gray-700 mb-2"
               >
                 <Calendar className="w-4 h-4 mr-2 text-gray-500" />
-                Timeline <span className="text-red-500 ml-1">*</span>
+                Available to start within <span className="text-red-500 ml-1">*</span>
               </Label.Root>
               <div className="relative">
                 <select
@@ -217,7 +227,7 @@ export default function RFQForm() {
                   required
                   className="w-full px-4 py-2 pl-10 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition appearance-none bg-white"
                 >
-                  <option value="">Select timeline</option>
+                  <option value="">Select</option>
                   <option value="immediate">Immediate (Within 1 month)</option>
                   <option value="1-3-months">1-3 months</option>
                   <option value="3-6-months">3-6 months</option>
@@ -233,14 +243,14 @@ export default function RFQForm() {
                 className="flex items-center text-sm font-medium text-gray-700 mb-2"
               >
                 <Package className="w-4 h-4 mr-2 text-gray-500" />
-                Estimated Monthly Volume
+                Expected salary in euro
               </Label.Root>
               <div className="relative">
                 <input
                   type="text"
                   id="volume"
                   name="volume"
-                  placeholder="e.g., 10,000 units"
+                  placeholder="e.g., 40000"
                   className="w-full px-4 py-2 pl-10 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                 />
                 <Package className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
@@ -253,14 +263,14 @@ export default function RFQForm() {
               htmlFor="details"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Project Details <span className="text-red-500">*</span>
+              Tell us about yourself <span className="text-red-500">*</span>
             </Label.Root>
             <textarea
               id="details"
               name="details"
               rows={6}
               required
-              placeholder="Please provide details about your requirements, including product specifications, storage needs, shipping destinations, or any other relevant information..."
+              placeholder="Please provide details about your skills, including experiences, expectations, dreams, or any other relevant information..."
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition resize-none"
             />
           </div>
