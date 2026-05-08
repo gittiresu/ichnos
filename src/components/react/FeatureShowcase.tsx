@@ -1,44 +1,7 @@
 import { motion } from 'motion/react';
+import { POSITIONS } from '@utils/positions';
 
-import frontendDevImg from '@assets/frontend-dev.webp';
-import backendDevImg from '@assets/backend-dev.jpg';
-import packageImg from '@assets/photo-1581091226825-a6a2a5aee158.jpg';
-import barChart3Img from '@assets/photo-1551288049-bebda4e38f71.jpg';
-import shieldImg from '@assets/photo-1563013544-824ae1b704d3.jpg';
-import headphonesImg from '@assets/photo-1486312338219-ce68d2c6f44d.jpg';
-
-const features = [
-  {
-    title: 'FrontEnd Developer',
-    description: 'Build fast, responsive interfaces and deliver seamless user experiences across modern web applications.',
-    image: frontendDevImg,
-  },
-  {
-    title: 'BackEnd Developer',
-    description: 'Design scalable APIs and build robust server-side systems that power reliable, high-performance applications.',
-    image: backendDevImg,
-  },
-  {
-    title: 'SysAdmin',
-    description: 'Maintain secure, stable, and efficient IT infrastructure to ensure seamless system operations.',
-    image: packageImg,
-  },
-  {
-    title: 'SEO Specialist',
-    description: 'Drive organic growth and boost search visibility through data-driven SEO strategies.',
-    image: barChart3Img,
-  },
-  {
-    title: 'Cyber Security Specialist',
-    description: 'Protect systems and data by identifying threats and implementing robust security solutions.',
-    image: shieldImg,
-  },
-  {
-    title: 'Customer Support',
-    description: 'Deliver exceptional support and build lasting customer relationships through responsive, solution-focused service.',
-    image: headphonesImg,
-  },
-];
+const features = POSITIONS;
 
 export default function FeatureShowcase() {
   return (
@@ -50,13 +13,13 @@ export default function FeatureShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          className="group cursor-pointer"
+          className="group"
         >
           <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
             {/* Image */}
             <div className="relative h-64 overflow-hidden">
               <motion.img
-                src={feature.image.src}
+                src={`/${feature.image}`}
                 alt={feature.title}
                 className="w-full h-full object-cover"
                 loading="lazy"

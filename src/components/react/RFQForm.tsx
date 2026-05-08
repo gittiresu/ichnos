@@ -1,11 +1,14 @@
 import * as Label from '@radix-ui/react-label';
 import * as Checkbox from '@radix-ui/react-checkbox';
-import { Check, User, Building2, Briefcase, Warehouse, Factory, Truck, Network, Wrench, Cpu, Calendar, Package } from 'lucide-react';
+import { Check, User, Building2, Briefcase, Calendar, Package } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA } from '@config/site';
 import type { AlertHandle } from '../../utils/types';
 import AlertBox from "./AlertBox";
+import { POSITIONS } from '@utils/positions';
+
+const positions = POSITIONS;
 
 interface Props {
   siteKey?: string;
@@ -214,29 +217,22 @@ export default function RFQForm({ siteKey = RECAPTCHA.siteKey, secretKey = RECAP
           <div className="space-y-6">
             <div>
               <Label.Root className="block text-sm font-medium text-gray-700 mb-3">
-                At the moment we are looking for <span className="text-red-500">*</span>
+                At the moment we are looking for <span className="text-red-500"></span>
               </Label.Root>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[
-                  { id: 'warehousing', label: 'Warehousing & Storage', icon: Warehouse },
-                  { id: 'manufacturing', label: 'Manufacturing Services', icon: Factory },
-                  { id: 'transportation', label: 'Transportation & Distribution', icon: Truck },
-                  { id: 'supply-chain', label: 'Supply Chain Management', icon: Network },
-                  { id: 'value-added', label: 'Value-Added Services', icon: Wrench },
-                  { id: 'technology', label: 'Technology Integration', icon: Cpu },
-                ].map((service) => {
-                  const IconComponent = service.icon;
+                {positions.map((service) => {
+                  const serviceID = service.image.split('.')[0].toLowerCase().replace(/\s+/g, '-');
                   return (
                     <div
-                      key={service.id}
+                      key={serviceID}
                       className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 transition-all cursor-pointer group"
                     >
                       <Checkbox.Root
-                        id={service.id}
+                        id={serviceID}
                         name="services"
-                        value={service.id}
-                        checked={selected === service.id}
-                        onCheckedChange={() => toggle(service.id)}            
+                        value={serviceID}
+                        checked={selected === serviceID}
+                        onCheckedChange={() => toggle(serviceID)}            
                         style={{ cursor: 'pointer'}}
                         className="w-5 h-5 flex items-center justify-center border-2 border-gray-300 rounded data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600 transition-colors shrink-0"
                       >
@@ -244,14 +240,11 @@ export default function RFQForm({ siteKey = RECAPTCHA.siteKey, secretKey = RECAP
                           <Check className="w-4 h-4 text-white" />
                         </Checkbox.Indicator>
                       </Checkbox.Root>
-                      <div className="w-8 h-8 rounded-lg bg-gray-100 group-hover:bg-blue-100 flex items-center justify-center shrink-0 transition-colors">
-                        <IconComponent className="w-4 h-4 text-gray-600 group-hover:text-blue-600 transition-colors" />
-                      </div>
                       <Label.Root
-                        htmlFor={service.id}
+                        htmlFor={serviceID}
                         className="text-sm font-medium text-gray-700 cursor-pointer flex-1 group-hover:text-gray-900 transition-colors"
                       >
-                        {service.label}
+                        {service.title}
                       </Label.Root>
                     </div>
                   );

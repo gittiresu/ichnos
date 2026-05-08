@@ -1,9 +1,10 @@
 export const prerender = false;
 
 import { Resend } from "resend";
-import { RECAPTCHA } from '@config/site';
+import RFQTemplate from "../../email/RFQTemplate";
+import { RECAPTCHA, SITE, RESEND } from '@config/site';
 
-const resend = new Resend("re_5MJnuSjA_Me7AdL6Y6u6AAsoifEAUKwYA");
+const resend = new Resend(RESEND.apiKey);
 
 export async function POST({ request }) {
   const { token, formData } = await request.json();
@@ -36,30 +37,35 @@ export async function POST({ request }) {
       message: 'Captcha not valid' 
     });
   }
-    
-  const toData = "gittires@gmail.com";
-  const fromData = formData?.firstName + " " + formData?.lastName + " <" + formData?.email + ">" || null;
-  //const fromData = formData?.firstName + " " + formData?.lastName + " <noreply@ichnosconsultancy.com>" || null;
-  const subjectData = "[Ichnos site] Application for " + formData?.services || null;
-  const bodyData = `<p>
-    <b>Nome: </b> ${formData?.firstName} ${formData?.lastName} <br />
-    <b>Email: </b> ${formData?.email} <br />
-    <b>Phone: </b> ${formData?.phone} <br />
-    <b>Current company: </b> ${formData?.company} <br />
-    <b>Company field: </b> ${formData?.industry} <br />
-    <b>Applying for: </b> ${formData?.services} <br />
-    <b>Available to start within: </b> ${formData?.timeline} <br />
-    <b>Expected salary: </b> ${formData?.volume} <br />
-    <b>Message: </b> ${formData?.details} <br />
-  </p>`;
 
-  return new Response(JSON.stringify({ ok: true }), { status: 200 });
+  const row = (label, value) => {
+    if (!value) return "";
+    return `<b>${label}: </b> ${value} <br />`;
+  };
+    
+  const toData = SITE.email;
+  const fromData = formData?.firstName + " " + formData?.lastName + " <noreply@ichnosconsultancy.com>" || null;
+  let subjectData  = "[Ichnos site] ";
+      subjectData += !!formData?.services ? "Application for " + formData?.services : "Contact without application";
+
+  const bodyData = `
+    <p>
+      ${row("Nome", `${formData?.firstName || ""} ${formData?.lastName || ""}`.trim())}
+      ${row("Email", formData?.email)}
+      ${row("Phone", formData?.phone)}
+      ${row("Current company", formData?.company)}
+      ${row("Company field", formData?.industry)}
+      ${row("Applying for", formData?.services)}
+      ${row("Available to start within", formData?.timeline)}
+      ${row("Expected salary", formData?.volume)}
+      ${row("Message", formData?.details)}
+    </p>`;
   
   const emailResponse = await resend.emails.send({
     from: fromData,
     to: toData,
     subject: subjectData,
-    html: bodyData,
+    react: RFQTemplate({ data: bodyData }),
   });
   
   if(emailResponse?.error === null) {
@@ -71,5 +77,4 @@ export async function POST({ request }) {
       message: emailResponse?.error?.message 
     });
   }
-
 }

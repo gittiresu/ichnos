@@ -4,12 +4,21 @@ export const SITE = {
   description: 'Recruitment, human resources, mergers and acquisitions.',
   url: 'https://www.ichnosconsultancy.com/',
   author: 'Ichnos Consultancy Ltd',
+  email: 'gittires@gmail.com',
   CBID: 'bb608901-c6b3-4a4d-8e0d-06f3de527241'
 } as const;
 
 export const RECAPTCHA = {
   siteKey: '6Lfakt8sAAAAAIGy5TI0MdGsr3_EQfOTMnoiR7Y0',
   secretKey: '6Lfakt8sAAAAAG7znnRNcki1V8SO7FxS-EV_Sqj_'
+} as const;
+
+export const RESEND = {
+  apiKey: 're_5MJnuSjA_Me7AdL6Y6u6AAsoifEAUKwYA'
+} as const;
+
+export const COOKIEBOT = {
+  apiKey: 're_5MJnuSjA_Me7AdL6Y6u6AAsoifEAUKwYA'
 } as const;
 
 export const NAVIGATION = [
