@@ -1,0 +1,1 @@
+const e={siteKey:"6Lfakt8sAAAAAIGy5TI0MdGsr3_EQfOTMnoiR7Y0",secretKey:"6Lfakt8sAAAAAG7znnRNcki1V8SO7FxS-EV_Sqj_"},a=[{name:"Home",href:"/"},{name:"About Us",href:"/#about-us"},{name:"Partners",href:"/#partners"},{name:"Vacancy",href:"/#vacancy"},{name:"M&A",href:"/#mergers-and-acquisitions"},{name:"News",href:"/#news"}];export{a as N,e as R};
