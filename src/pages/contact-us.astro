@@ -1,4 +1,5 @@
 ---
+import '../styles/alertBox.css';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Section from '@components/ui/Section.astro';
 import Card from '@components/ui/Card.astro';
@@ -47,27 +48,20 @@ import warehouseImg from '@assets/photo-1563013544-824ae1b704d3.jpg';
             <div class="text-sm text-slate-300 group-hover:text-teal-300 transition-colors">Happy Clients</div>
           </div>
           <div class="group">
-            <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-blue-200 mb-1">99.9%</div>
-            <div class="text-sm text-slate-300 group-hover:text-teal-300 transition-colors">On-Time Rate</div>
+            <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-blue-200 mb-1">99%</div>
+            <div class="text-sm text-slate-300 group-hover:text-teal-300 transition-colors">Allocation Rate</div>
           </div>
           <div class="group">
-            <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-blue-200 mb-1">15+</div>
-            <div class="text-sm text-slate-300 group-hover:text-teal-300 transition-colors">Facilities</div>
+            <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-blue-200 mb-1">35.000+</div>
+            <div class="text-sm text-slate-300 group-hover:text-teal-300 transition-colors">Network of contacts</div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Wave separator -->
-    <!-- <div class="absolute bottom-0 left-0 right-0">
-      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
-        <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
-      </svg>
-    </div> -->
   </section>
 
   <!-- Main Form Section -->
-  <Section background="gray">
+  <Section background="gray" id="contact-us">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
       <!-- Form -->
       <div class="lg:col-span-2">
@@ -149,14 +143,7 @@ import warehouseImg from '@assets/photo-1563013544-824ae1b704d3.jpg';
               <span class="shrink-0 w-8 h-8 rounded-full bg-linear-to-br from-green-600 to-green-700 text-white flex items-center justify-center font-bold text-sm shadow-md">3</span>
               <div>
                 <span class="text-gray-900 font-semibold block">Proposal</span>
-                <span class="text-gray-600">Receive a detailed quote and timeline</span>
-              </div>
-            </li>
-            <li class="flex items-start space-x-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
-              <span class="shrink-0 w-8 h-8 rounded-full bg-linear-to-br from-purple-600 to-purple-700 text-white flex items-center justify-center font-bold text-sm shadow-md">4</span>
-              <div>
-                <span class="text-gray-900 font-semibold block">Partnership</span>
-                <span class="text-gray-600">Begin your logistics journey with us</span>
+                <span class="text-gray-600">Get a job opportunity quickly</span>
               </div>
             </li>
           </ol>
@@ -175,25 +162,19 @@ import warehouseImg from '@assets/photo-1563013544-824ae1b704d3.jpg';
               <div class="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center shrink-0">
                 <TrendingUp className="w-4 h-4 text-green-600" />
               </div>
-              <span class="text-gray-700 pt-1">25+ years of industry experience</span>
+              <span class="text-gray-700 pt-1">20+ years experience</span>
             </li>
             <li class="flex items-start space-x-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
               <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center shrink-0">
                 <CheckCircle2 className="w-4 h-4 text-blue-600" />
               </div>
-              <span class="text-gray-700 pt-1">99.9% on-time delivery rate</span>
-            </li>
-            <li class="flex items-start space-x-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
-              <div class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center shrink-0">
-                <Shield className="w-4 h-4 text-purple-600" />
-              </div>
-              <span class="text-gray-700 pt-1">ISO 9001 certified facilities</span>
+              <span class="text-gray-700 pt-1">90% of resources allocated in a short time</span>
             </li>
             <li class="flex items-start space-x-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
               <div class="w-8 h-8 rounded-lg bg-teal-100 flex items-center justify-center shrink-0">
                 <Users className="w-4 h-4 text-teal-600" />
               </div>
-              <span class="text-gray-700 pt-1">24/7 customer support</span>
+              <span class="text-gray-700 pt-1">Constant support</span>
             </li>
           </ul>
         </Card>

@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { Warehouse, Truck, Package, BarChart3, Shield, Headphones } from 'lucide-react';
 
 import frontendDevImg from '@assets/frontend-dev.webp';
 import backendDevImg from '@assets/backend-dev.jpg';

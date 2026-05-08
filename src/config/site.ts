@@ -7,6 +7,11 @@ export const SITE = {
   CBID: 'bb608901-c6b3-4a4d-8e0d-06f3de527241'
 } as const;
 
+export const RECAPTCHA = {
+  siteKey: '6Lfakt8sAAAAAIGy5TI0MdGsr3_EQfOTMnoiR7Y0',
+  secretKey: '6Lfakt8sAAAAAG7znnRNcki1V8SO7FxS-EV_Sqj_'
+} as const;
+
 export const NAVIGATION = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/#about-us' },
