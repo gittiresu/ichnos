@@ -41,7 +41,7 @@ import { faAnglesUp } from '@fortawesome/free-solid-svg-icons'
   // Otteniamo il bottone "Scroll to Top"
   const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-  if(!!scrollToTopBtn) {
+  if(scrollToTopBtn) {
     // Mostriamo il bottone quando l'utente scorre verso il basso
     window.onscroll = () => {
       if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {

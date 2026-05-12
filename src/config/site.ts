@@ -4,8 +4,7 @@ export const SITE = {
   description: 'Recruitment, human resources, mergers and acquisitions.',
   url: 'https://www.ichnosconsultancy.com/',
   author: 'Ichnos Consultancy Ltd',
-  email: 'gittires@gmail.com',
-  CBID: 'bb608901-c6b3-4a4d-8e0d-06f3de527241'
+  email: 'gittires@gmail.com'
 } as const;
 
 export const RECAPTCHA = {
@@ -18,7 +17,7 @@ export const RESEND = {
 } as const;
 
 export const COOKIEBOT = {
-  apiKey: 're_5MJnuSjA_Me7AdL6Y6u6AAsoifEAUKwYA'
+  apiKey: 'bb608901-c6b3-4a4d-8e0d-06f3de527241'
 } as const;
 
 export const NAVIGATION = [

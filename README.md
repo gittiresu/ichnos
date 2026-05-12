@@ -28,12 +28,11 @@ A modern, professional Astro.js template for logistics, manufacturing, and suppl
 
 ## 📦 Pages Included
 
-- **Home** - Hero section, features, stats, testimonials
-- **Capabilities** - Service offerings showcase
-- **Use Cases** - Industry-specific solutions
-- **Facilities** - Location and facility information
-- **Request Quote (RFQ)** - Contact form for quotes
-- **Documentation** - Resources and guides
+- **Home** - About us section, partners, vacancy, M&A, News
+- **Terms of Service** - Static page
+- **Privacy Policy** - Static page
+- **Cookie Policy** - Static page
+- **Request Quote (RFQ)** - Contact form for apply
 
 ## 🚀 Quick Start
 
@@ -45,8 +44,8 @@ A modern, professional Astro.js template for logistics, manufacturing, and suppl
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/astroflow.git
-cd astroflow
+git clone git@github.com:gittiresu/ichnos.git
+cd ichnos
 ```
 
 2. Install dependencies:
@@ -73,6 +72,7 @@ export const SITE = {
   description: 'Your company description', // TODO: Update with your description
   url: 'https://yourdomain.com', // TODO: Replace with your actual domain
   author: 'Your Company Name', // TODO: Replace with your company name
+  email: 'Your Company Mail', // TODO: Replace with your company mail
 } as const;
 
 export const SOCIAL_LINKS = {

@@ -13,8 +13,6 @@
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@astrojs/vercel": "^9.0.5",
-    "@fortawesome/free-brands-svg-icons": "^7.2.0",
-    "@fortawesome/free-regular-svg-icons": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@fortawesome/react-fontawesome": "^3.3.1",
     "@radix-ui/themes": "^3.2.1",
@@ -26,15 +24,20 @@
     "lucide-react": "^0.554.0",
     "motion": "^12.23.24",
     "react": "^19.2.0",
-    "react-cookie-consent": "^10.0.1",
     "react-dom": "^19.2.0",
     "react-google-recaptcha": "^3.1.0",
     "resend": "^6.12.3",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^7.2.0",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.7.0",
     "@types/react-google-recaptcha": "^2.1.9",
-    "baseline-browser-mapping": "^2.10.27"
+    "eslint": "^10.3.0",
+    "eslint-plugin-astro": "^1.7.0",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "knip": "^6.13.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.59.3"
   }
 }

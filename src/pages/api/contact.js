@@ -46,7 +46,7 @@ export async function POST({ request }) {
   const toData = SITE.email;
   const fromData = formData?.firstName + " " + formData?.lastName + " <noreply@ichnosconsultancy.com>" || null;
   let subjectData  = "[Ichnos site] ";
-      subjectData += !!formData?.services ? "Application for " + formData?.services : "Contact without application";
+      subjectData += formData?.services ? "Application for " + formData?.services : "Contact without application";
 
   const bodyData = `
     <p>

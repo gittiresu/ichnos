@@ -13,7 +13,7 @@ export default function RFQTemplate({ data }) {
       <Body style={{ background: "#ccc" }}>
         <Container style={{ padding: "20px", background: "#fff" }}>
           <Heading>
-            <img src={`${SITE.url}/logo_tr_mini_no_border.png`} alt="Logo" />
+            <img src={`${SITE.url}/logo_tr_minified.jpg`} alt="Logo" />
           </Heading>
           <div dangerouslySetInnerHTML={{ __html: data }} />
         </Container>

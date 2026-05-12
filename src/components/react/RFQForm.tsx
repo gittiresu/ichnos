@@ -55,7 +55,7 @@ export default function RFQForm({ siteKey = RECAPTCHA.siteKey, secretKey = RECAP
     });
     
     try {
-      if(!!mailSend.ok) {
+      if(mailSend.ok) {
         // Show success message
         alertRef.current?.show("Thank you for your request! We will contact you within 24 hours.");
         recaptchaRef.current?.reset();
