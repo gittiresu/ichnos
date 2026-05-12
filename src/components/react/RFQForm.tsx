@@ -7,8 +7,12 @@ import { RECAPTCHA } from '@config/site';
 import type { AlertHandle } from '../../utils/types';
 import AlertBox from "./AlertBox";
 import { POSITIONS } from '@utils/positions';
+import { TIMELINES } from '@/utils/timelines';
+import { INDUSTRIES } from '@utils/industries';
 
 const positions = POSITIONS;
+const timelines = TIMELINES;
+const industries = INDUSTRIES;
 
 interface Props {
   siteKey?: string;
@@ -192,13 +196,13 @@ export default function RFQForm({ siteKey = RECAPTCHA.siteKey, secretKey = RECAP
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
               >
                 <option value="">Select one</option>
-                <option value="ecommerce">E-Commerce & Retail</option>
-                <option value="healthcare">Healthcare & Pharmaceuticals</option>
-                <option value="automotive">Automotive & Manufacturing</option>
-                <option value="technology">Technology & Electronics</option>
-                <option value="consumer-goods">Consumer Goods</option>
-                <option value="food-beverage">Food & Beverage</option>
-                <option value="other">Other</option>
+                  {industries.map((industry) => {
+                    return (
+                      <option key={industry.value} value={industry.value}>
+                        {industry.label}
+                      </option>
+                    );
+                  })}
               </select>
             </div>
           </div>
@@ -267,12 +271,14 @@ export default function RFQForm({ siteKey = RECAPTCHA.siteKey, secretKey = RECAP
                     name="timeline"
                     required
                     className="w-full px-4 py-2 pl-10 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition appearance-none bg-white"
-                  >
-                    <option value="immediate">Immediate (Within 1 month)</option>
-                    <option value="1-3-months">1-3 months</option>
-                    <option value="3-6-months">3-6 months</option>
-                    <option value="6-plus-months">6+ months</option>
-                    <option value="flexible">Flexible</option>
+                  >                    
+                  {timelines.map((timeline) => {
+                    return (
+                      <option key={timeline.value} value={timeline.value}>
+                        {timeline.label}
+                      </option>
+                    );
+                  })}
                   </select>
                   <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
                 </div>

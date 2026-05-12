@@ -3,6 +3,9 @@ export const prerender = false;
 import { Resend } from "resend";
 import RFQTemplate from "../../email/RFQTemplate";
 import { RECAPTCHA, SITE, RESEND } from '@config/site';
+import { POSITIONS } from '@utils/positions';
+import { TIMELINES } from '@utils/timelines';
+import { INDUSTRIES } from '@utils/industries';
 
 const resend = new Resend(RESEND.apiKey);
 
@@ -38,15 +41,36 @@ export async function POST({ request }) {
     });
   }
 
+  function getTitleByImageName(imageName) {
+    const position = POSITIONS.find((item) => {
+      const fileNameWithoutExtension = item.image.split('.').slice(0, -1).join('.');
+      return fileNameWithoutExtension === imageName;
+    });
+    return position?.title;
+  }
+
+  function getTimelineByValue(value) {
+    const timeline = TIMELINES.find((item) => item.value === value);
+    return timeline?.label;
+  }
+
+  function getIndustryByValue(value) {
+    const industry = INDUSTRIES.find((item) => item.value === value);
+    return industry?.label;
+  }
+
   const row = (label, value) => {
     if (!value) return "";
     return `<b>${label}: </b> ${value} <br />`;
   };
     
+  let selectedTimeline = formData?.timeline ? getTimelineByValue(formData.timeline) : null;
+  let selectedIndustry = formData?.industry ? getIndustryByValue(formData.industry) : null;
+  let selectedService = formData?.services ? getTitleByImageName(formData.services) : null;
   const toData = SITE.email;
   const fromData = formData?.firstName + " " + formData?.lastName + " <noreply@ichnosconsultancy.com>" || null;
   let subjectData  = "[Ichnos site] ";
-      subjectData += formData?.services ? "Application for " + formData?.services : "Contact without application";
+      subjectData += formData?.services ? "Application for " + selectedService : "Contact without application";
 
   const bodyData = `
     <p>
@@ -54,9 +78,9 @@ export async function POST({ request }) {
       ${row("Email", formData?.email)}
       ${row("Phone", formData?.phone)}
       ${row("Current company", formData?.company)}
-      ${row("Company field", formData?.industry)}
-      ${row("Applying for", formData?.services)}
-      ${row("Available to start within", formData?.timeline)}
+      ${row("Company field", selectedIndustry)}
+      ${row("Applying for", selectedService)}
+      ${row("Available to start within", selectedTimeline)}
       ${row("Expected salary", formData?.volume)}
       ${row("Message", formData?.details)}
     </p>`;
