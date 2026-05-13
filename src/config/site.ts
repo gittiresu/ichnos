@@ -4,7 +4,8 @@ export const SITE = {
   description: 'Recruitment, human resources, mergers and acquisitions.',
   url: 'https://www.ichnosconsultancy.com/',
   author: 'Ichnos Consultancy Ltd',
-  email: 'gittires@gmail.com'
+  phone: '+44 1234 567890',
+  email: 'luca@ichnosconsultancy.com',
 } as const;
 
 export const RECAPTCHA = {

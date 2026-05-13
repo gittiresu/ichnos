@@ -6,7 +6,11 @@ import Card from '@components/ui/Card.astro';
 import RFQForm from '@components/react/RFQForm';
 import { Image } from 'astro:assets';
 import { Clock, CheckCircle2, Phone, Mail, MessageCircle, Award, TrendingUp, Users } from 'lucide-react';
-import rfqBgImg from '@assets/photo-1454165804606-c3d57bc86b40.jpg';
+import rfqBgImg from '@assets/contact-us.png';
+import { SITE } from '@config/site';
+
+const contactMail = SITE.email;
+const contactPhone = SITE.phone;
 ---
 
 <BaseLayout title="Request a Quote - Get Started Today">
@@ -86,7 +90,7 @@ import rfqBgImg from '@assets/photo-1454165804606-c3d57bc86b40.jpg';
               </div>
               <div>
                 <div class="font-semibold text-gray-900">Phone</div>
-                <div class="text-gray-600 font-medium">1-800-LOGI-MANUF</div>
+                <div class="text-gray-600 font-medium">{contactPhone}</div>
                 <div class="text-gray-500 text-xs">Mon-Fri, 8am-6pm</div>
               </div>
             </div>
@@ -97,7 +101,7 @@ import rfqBgImg from '@assets/photo-1454165804606-c3d57bc86b40.jpg';
               </div>
               <div>
                 <div class="font-semibold text-gray-900">Email</div>
-                <div class="text-gray-600 font-medium">luca@ichnosconsultancy.com</div>
+                <div class="text-gray-600 font-medium">{contactMail}</div>
                 <div class="text-gray-500 text-xs">24-hour response time</div>
               </div>
             </div>

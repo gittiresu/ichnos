@@ -1,10 +1,29 @@
 import { motion } from 'motion/react';
+import { useState } from "react";
+import Modal from "./Modal";
 import { POSITIONS } from '@utils/positions';
 
 const features = POSITIONS;
 
+type Feature = (typeof POSITIONS)[number];
+
 export default function FeatureShowcase() {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<Feature | null>(null);
+
+  const openModal = (item: Feature) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedItem(null);
+  };
+
   return (
+    <>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {features.map((feature, index) => (
         <motion.div
@@ -14,6 +33,7 @@ export default function FeatureShowcase() {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
           className="group"
+          onClick={() => openModal(feature)}
         >
           <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
             {/* Image */}
@@ -38,6 +58,12 @@ export default function FeatureShowcase() {
         </motion.div>
       ))}
     </div>
+    <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        content={selectedItem}
+      />
+    </>
   );
 }
 
