@@ -1,5 +1,4 @@
-import { Image } from 'astro:assets';
-import { NEWS} from '@utils/news/news';
+import { NEWS} from '@customizations/news/news';
 import Modal from "../ui/Modal";
 import { useState } from "react";
 import { motion } from 'motion/react';
@@ -24,7 +23,7 @@ export default function NewsShowcase() {
     setSelectedItem(null);
   };
   
-  const images = import.meta.glob("../../utils/news/images/*.{png,jpg,jpeg,svg,webp,gif}", {
+  const images = import.meta.glob("../../customizations/news/images/*.{png,jpg,jpeg,svg,webp,gif}", {
     eager: true,
     import: "default"
   });

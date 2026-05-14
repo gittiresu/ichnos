@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useState } from "react";
 import Modal from "../ui/Modal";
-import { POSITIONS } from '@utils/positions/positions';
+import { POSITIONS } from '@customizations/positions/positions';
 import type { ImageMetadata } from "astro";
 
 const positions = POSITIONS;
@@ -22,7 +22,7 @@ export default function VacancyShowcase() {
     setSelectedItem(null);
   };
 
-  const images = import.meta.glob("../../utils/positions/images/*.{png,jpg,jpeg,svg,webp,gif}", {
+  const images = import.meta.glob("../../customizations/positions/images/*.{png,jpg,jpeg,svg,webp,gif}", {
     eager: true,
     import: "default"
   });

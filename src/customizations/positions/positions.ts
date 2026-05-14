@@ -35,6 +35,6 @@ export const POSITIONS = [
     description: 'Deliver exceptional support and build lasting customer relationships through responsive, solution-focused service.',
     image: 'customer-support.jpg',
     htmlText: 'customer-support.html'
-  }
+  },
 ] as const;
 

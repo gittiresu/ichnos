@@ -17,7 +17,7 @@
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
       "@config/*": ["src/config/*"],
-      "@utils/*": ["src/utils/*"]
+      "@customizations/*": ["src/customizations/*"]
     }
   }
 }

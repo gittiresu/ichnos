@@ -135,10 +135,11 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 │   │   ├── react/       # React interactive components
 │   │   └── ui/          # UI components
 │   ├── config/          # Configuration files
-│   ├── layouts/         # Page layouts
+│   ├── layouts/         # Page and mail layouts
 │   ├── pages/           # Astro pages (routes)
 │   ├── styles/          # Global styles
-│   └── utils/           # Utility functions
+│   └── types/           # Elements typing
+│   └── customizations/  # Customization of site contents
 ├── astro.config.mjs     # Astro configuration
 ├── package.json
 └── tsconfig.json
@@ -158,8 +159,10 @@ Replace placeholder images in `src/assets/` with your own. The template includes
 
 - Update text content in component files
 - Modify navigation in `src/config/site.ts`
-- Update facility information in `src/pages/facilities.astro`
-- Customize testimonials in `src/components/home/Testimonials.astro`
+- Customize vacancies in `src/customizations/positions/positions.ts`
+- Customize news in `src/customizations/news/news.ts`
+- Customize industries in `src/customizations/industries.ts`
+- Customize timelines in `src/customizations/timelines.ts`
 
 ## 🚢 Deployment
 

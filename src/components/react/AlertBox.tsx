@@ -1,5 +1,5 @@
 import { useState, forwardRef, useImperativeHandle } from "react";
-import type { AlertHandle } from "../../utils/types";
+import type { AlertHandle } from "../../types/types";
 
 const AlertBox = forwardRef<AlertHandle>((props, ref) => {
   const [visible, setVisible] = useState(false);

@@ -7,13 +7,13 @@ export default function Modal({ isOpen, onClose, content, type }: { isOpen: bool
   const [htmlContent, setHtmlContent] = useState("");
   let files: any;
   if(type === "news") {
-    files = import.meta.glob(`../../utils/news/*.html`, {
+    files = import.meta.glob(`../../customizations/news/*.html`, {
       query: "?raw",
       import: "default",
       eager: true
     });
   } else if (type === "positions") {
-    files = import.meta.glob(`../../utils/positions/*.html`, {
+    files = import.meta.glob(`../../customizations/positions/*.html`, {
       query: "?raw",
       import: "default",
       eager: true
@@ -59,61 +59,6 @@ export default function Modal({ isOpen, onClose, content, type }: { isOpen: bool
         />
       </div>
 
-      <style>{`
-        .modal-overlay {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.5);
-
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          padding: 20px; /* evita che tocchi i bordi */
-          z-index: 999;
-        }
-
-        .modal-content {
-          background: white;
-
-          width: 100%;
-          max-width: 600px;
-
-          max-height: 90vh; /* limite altezza */
-          overflow-y: auto; /* scroll interno */
-
-          padding: 2rem;
-          border-radius: 12px;
-
-          position: relative;
-
-          animation: fadeIn 0.25s ease;
-        }
-
-        .close-btn {
-          position: absolute;
-          top: 10px;
-          right: 15px;
-
-          border: none;
-          background: transparent;
-
-          font-size: 24px;
-          cursor: pointer;
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 }

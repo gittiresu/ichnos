@@ -1,4 +1,4 @@
-// emails/RFQTemplate.jsx
+// layouts/MailTemplate.jsx
 import {
   Html,
   Body,
@@ -7,7 +7,7 @@ import {
 } from "@react-email/components";
 import { SITE } from '@config/site';
 
-export default function RFQTemplate({ data }) {
+export default function MailTemplate({ data }) {
   return (
     <Html>
       <Body style={{ background: "#ccc" }}>

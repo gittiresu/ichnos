@@ -23,5 +23,5 @@ export const NEWS = [
     teaser: "Dedicated account management and 24/7 support help you scale operations and adapt to changing market demands.",
     image: 'news4.jpg',
     htmlText: 'support-growth.html'
-  }
+  },
 ] as const;

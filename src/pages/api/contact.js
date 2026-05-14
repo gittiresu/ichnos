@@ -1,11 +1,11 @@
 export const prerender = false;
 
 import { Resend } from "resend";
-import RFQTemplate from "../../email/RFQTemplate";
+import MailTemplate from "../../layouts/MailTemplate";
 import { RECAPTCHA, SITE, RESEND } from '@config/site';
-import { POSITIONS } from '@utils/positions/positions';
-import { TIMELINES } from '@utils/timelines';
-import { INDUSTRIES } from '@utils/industries';
+import { POSITIONS } from '@customizations/positions/positions';
+import { TIMELINES } from '@customizations/timelines';
+import { INDUSTRIES } from '@customizations/industries';
 
 const resend = new Resend(RESEND.apiKey);
 
@@ -89,7 +89,7 @@ export async function POST({ request }) {
     from: fromData,
     to: toData,
     subject: subjectData,
-    react: RFQTemplate({ data: bodyData }),
+    react: MailTemplate({ data: bodyData }),
   });
   
   if(emailResponse?.error === null) {

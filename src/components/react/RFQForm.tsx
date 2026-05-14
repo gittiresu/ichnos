@@ -4,11 +4,11 @@ import { Check, User, Building2, Briefcase, Calendar, Package } from 'lucide-rea
 import { useState, useRef, useEffect } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA } from '@config/site';
-import type { AlertHandle } from '../../utils/types';
+import type { AlertHandle } from '../../types/types';
 import AlertBox from "./AlertBox";
-import { POSITIONS } from '@utils/positions/positions';
-import { TIMELINES } from '@/utils/timelines';
-import { INDUSTRIES } from '@utils/industries';
+import { POSITIONS } from '@customizations/positions/positions';
+import { TIMELINES } from '@customizations/timelines';
+import { INDUSTRIES } from '@customizations/industries';
 
 const positions = POSITIONS;
 const timelines = TIMELINES;
