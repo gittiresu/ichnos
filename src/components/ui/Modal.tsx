@@ -1,23 +1,32 @@
-// components/Modal.jsx
+// components/ui/Modal.tsx
 import { useEffect, useState } from "react";
 
-export default function Modal({ isOpen, onClose, content }: { isOpen: boolean; onClose: () => void; content: any }) {
+export default function Modal({ isOpen, onClose, content, type }: { isOpen: boolean; onClose: () => void; content: any; type: string }) {
   if (!isOpen) return null;
 
   const [htmlContent, setHtmlContent] = useState("");
-  const files = import.meta.glob("../../utils/positionsHtml/*.html", {
-    query: "?raw",
-    import: "default",
-    eager: true
-  });
-
+  let files: any;
+  if(type === "news") {
+    files = import.meta.glob(`../../utils/news/*.html`, {
+      query: "?raw",
+      import: "default",
+      eager: true
+    });
+  } else if (type === "positions") {
+    files = import.meta.glob(`../../utils/positions/*.html`, {
+      query: "?raw",
+      import: "default",
+      eager: true
+    });
+  } 
+  
   useEffect(() => {
     if (!content?.htmlText || !isOpen) return;
     const html = getFileContent(content.htmlText);
     if (html.length > 0) {
       setHtmlContent(html);
     } else {
-      console.error("Errore caricamento HTML: File not found", content.htmlText);
+      console.error("Error loading HTML: File not found", content.htmlText);
       setHtmlContent("<p>Content not available.</p>");
     }
   }, [content?.htmlText, isOpen]);

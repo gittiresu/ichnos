@@ -6,7 +6,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA } from '@config/site';
 import type { AlertHandle } from '../../utils/types';
 import AlertBox from "./AlertBox";
-import { POSITIONS } from '@utils/positions';
+import { POSITIONS } from '@utils/positions/positions';
 import { TIMELINES } from '@/utils/timelines';
 import { INDUSTRIES } from '@utils/industries';
 

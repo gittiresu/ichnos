@@ -3,7 +3,7 @@ export const prerender = false;
 import { Resend } from "resend";
 import RFQTemplate from "../../email/RFQTemplate";
 import { RECAPTCHA, SITE, RESEND } from '@config/site';
-import { POSITIONS } from '@utils/positions';
+import { POSITIONS } from '@utils/positions/positions';
 import { TIMELINES } from '@utils/timelines';
 import { INDUSTRIES } from '@utils/industries';
 

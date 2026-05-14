@@ -1,9 +1,5 @@
 ---
-import { Image } from 'astro:assets';
-import { NEWS} from '@utils/news';
-
-const items = NEWS;
-const arrowPath = "M9 5l7 7-7 7";
+import NewsShowcase from '../react/NewsShowcase';
 ---
 
 <section class="py-24 bg-white" id="news">
@@ -19,42 +15,9 @@ const arrowPath = "M9 5l7 7-7 7";
         Latest updates, insights, and stories from across the industry, all in one place.
       </p>
     </div>
+    
+    <NewsShowcase client:load />
 
-    <div class="relative">
-      <!-- Connection Line (hidden on mobile) -->
-      <div class="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-linear-to-r from-blue-200 via-teal-200 to-blue-200"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-        {items.map((item) => (
-          <div class="relative h-full">
-            <div class={`bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border-2 border-slate-100 ${item.hoverBorder} relative z-10 flex flex-col h-full`}>
-              <div class="relative h-48 overflow-hidden">
-                <Image 
-                  src={`/${item.image}`}
-                  alt={item.alt}
-                  class="w-full h-full object-cover"
-                  width={800}
-                  height={400}
-                />
-                <div class={`absolute inset-0 bg-linear-to-t ${item.gradient} to-transparent`}></div>
-              </div>
-              <div class="p-8 flex flex-col flex-1">
-                <h3 class="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p class="text-slate-600 leading-relaxed flex-1">
-                  {item.description}
-                </p>
-                <div class={`mt-6 flex items-center text-sm ${item.textColor} font-semibold`}>
-                  Learn more
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={arrowPath} />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
   </div>
 </section>
 
