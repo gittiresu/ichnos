@@ -2,6 +2,8 @@ import * as Label from '@radix-ui/react-label';
 import * as Checkbox from '@radix-ui/react-checkbox';
 import { Check, User, Building2, Briefcase, Calendar, Package } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
+import PhoneInput from "react-phone-number-input"
+import "react-phone-number-input/style.css"
 import ReCAPTCHA from "react-google-recaptcha";
 import { RECAPTCHA } from '@config/site';
 import type { AlertHandle } from '../../types/types';
@@ -19,12 +21,13 @@ interface Props {
   secretKey?: string;
 }
 
-export default function RFQForm({ siteKey = RECAPTCHA.siteKey, secretKey = RECAPTCHA.secretKey, }: Props) {
+export default function ContactForm({ siteKey = RECAPTCHA.siteKey, secretKey = RECAPTCHA.secretKey, }: Props) {
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState<string | number | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
   const [mounted, setMounted] = useState(false);
   const alertRef = useRef<AlertHandle | null>(null);
+  const [phoneValue, setPhoneValue] = useState<string | undefined>();
 
   useEffect(() => {
     setMounted(true);
@@ -38,7 +41,11 @@ export default function RFQForm({ siteKey = RECAPTCHA.siteKey, secretKey = RECAP
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const phone = document.getElementById("phone") as HTMLInputElement
+    if (!!!phone.value) { phone.focus(); return; }
+
     setLoading(true); // show overlay
+
     alertRef.current?.hide();
     const token = recaptchaRef.current?.getValue();
     
@@ -63,6 +70,7 @@ export default function RFQForm({ siteKey = RECAPTCHA.siteKey, secretKey = RECAP
         // Show success message
         alertRef.current?.show("Thank you for your request! We will contact you within 24 hours.");
         recaptchaRef.current?.reset();
+        setPhoneValue(undefined);
         form.reset();
       } else {      
         // Show failure message
@@ -147,11 +155,13 @@ export default function RFQForm({ siteKey = RECAPTCHA.siteKey, secretKey = RECAP
               >
                 Phone Number (with national prefix)<span className="text-red-500">*</span>
               </Label.Root>
-              <input
-                type="tel"
+              <PhoneInput        
+                international
+                defaultCountry="MT"
+                value={phoneValue}
+                onChange={setPhoneValue}
                 id="phone"
                 name="phone"
-                required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition"
               />
             </div>
@@ -323,10 +333,12 @@ export default function RFQForm({ siteKey = RECAPTCHA.siteKey, secretKey = RECAP
           </div>
         </div>    
         
-        <ReCAPTCHA
-          sitekey={siteKey}
-          ref={recaptchaRef}
-        />
+        <div className="recaptcha-wrapper">
+          <ReCAPTCHA
+            sitekey={siteKey}
+            ref={recaptchaRef}
+          />
+        </div>
 
         {/* Submit Button */}
         <div className="pt-6">

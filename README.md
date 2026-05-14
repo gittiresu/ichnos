@@ -88,7 +88,7 @@ The RFQ form (`src/components/react/contact-usForm.tsx`) currently logs form dat
 
 1. **Option 1: Form Service** (Recommended for static sites)
    - Use [Formspree](https://formspree.io/), [Netlify Forms](https://www.netlify.com/products/forms/), or similar
-   - Update the `handleSubmit` function in `RFQForm.tsx`
+   - Update the `handleSubmit` function in `ContactForm.tsx`
 
 2. **Option 2: Custom API**
    - Create an API endpoint

@@ -3,7 +3,7 @@ import '../styles/alertBox.css';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Section from '@components/ui/Section.astro';
 import Card from '@components/ui/Card.astro';
-import RFQForm from '@components/react/RFQForm';
+import ContactForm from '@components/react/ContactForm';
 import { Image } from 'astro:assets';
 import { Clock, CheckCircle2, Phone, Mail, MessageCircle, Award, TrendingUp, Users } from 'lucide-react';
 import rfqBgImg from '@assets/contact-us.png';
@@ -69,7 +69,7 @@ const contactPhone = SITE.phone;
       <!-- Form -->
       <div class="lg:col-span-2">
         <Card>
-          <RFQForm client:load />
+          <ContactForm client:load />
         </Card>
       </div>
 
